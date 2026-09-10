@@ -1,0 +1,27 @@
+{
+  "app": {
+    "name": "Prefeitura de Serra Azul do Mar",
+    "subname": "Turismo, Serviços e Transparência",
+    "version": "2.0.0",
+    "gestao": "Gestão 2025–2028",
+    "estado": "Ceará",
+    "cnpj": "00.000.000/0001-00",
+    "endereco": "Praça da Matriz, 100 — Centro, Serra Azul do Mar/CE - CEP 62590-000",
+    "telefone": "(88) 3000-0000",
+    "ouvidoria": "156",
+    "email": "atendimento@serraazuldomar.ce.gov.br",
+    "horario": "Segunda a sexta, 8h às 14h"
+  },
+  "theme": {
+    "defaultTheme": "light",
+    "primaryColor": "#0284c7",
+    "accentColor": "#0d9488",
+    "allowUserThemeToggle": true
+  },
+  "features": {
+    "enableNotifications": true,
+    "enableHighContrast": true,
+    "enableFontResizer": true,
+    "enableLiveSearch": true
+  }
+}

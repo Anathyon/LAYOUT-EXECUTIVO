@@ -1,0 +1,117 @@
+# ====================================================================
+# ARCHITECTURE & EXECUTIVE SERVER CONFIGURATION (.htaccess)
+# Configuração otimizada para Apache: Segurança, Caching e Desempenho
+# ====================================================================
+
+# --------------------------------------------------------------------
+# 1. SEGURANÇA E PROTEÇÃO DE DIRETÓRIOS
+# --------------------------------------------------------------------
+# Desativa a listagem de diretórios desprotegidos
+Options -Indexes
+
+# Oculta informações da versão do servidor
+ServerSignature Off
+
+# Proteção contra manipulação de UTF-8 e ataques XSS
+AddDefaultCharset UTF-8
+
+# Bloqueia acesso a arquivos sensíveis ou ocultos (como .git, .env, .config)
+<FilesMatch "^\.|\.json$|\.log$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Exceção para permitir a leitura publica de app.config.json
+<Files "app.config.json">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+</Files>
+
+# --------------------------------------------------------------------
+# 2. CABEÇALHOS DE SEGURANÇA HTTP (SECURITY HEADERS)
+# --------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Previne Clickjacking (permite embedding apenas no mesmo domínio)
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # Previne Sniffing de MIME-Type
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Proteção XSS ativada nos navegadores
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Controle de Referrer
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissões do navegador
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# --------------------------------------------------------------------
+# 3. COMPRESSÃO GZIP / DEFLATE (DESEMPENHO)
+# --------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml application/xhtml+xml
+</IfModule>
+
+# --------------------------------------------------------------------
+# 4. CONTROLE DE CACHE DO NAVEGADOR (EXPIRES HEADERS)
+# --------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # HTML - Não armazenar em cache para garantir atualizações imediatas
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # JSON - Curta duração
+    ExpiresByType application/json "access plus 0 seconds"
+
+    # CSS e JavaScript - Cache de 1 ano com versionamento
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+
+    # Imagens e Fontes
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# --------------------------------------------------------------------
+# 5. REGRAS DE REESCRITA DE URL (CLEAN URLS & SPA ROUTING)
+# --------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Forçar HTTPS (Descomentar se o SSL estiver ativo no servidor)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Remover extensão .html da URL (ex: site.com/contato carrega contato.html)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+
+    # Redirecionar rotas não encontradas para o index.html (fallback SPA)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>

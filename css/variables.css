@@ -1,0 +1,86 @@
+/* ====================================================================
+   DESIGN SYSTEM TOKENS - PORTAL DE SERRA AZUL DO MAR
+   ==================================================================== */
+
+:root {
+  /* Tipografia */
+  --font-display: 'Plus Jakarta Sans', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Font Scaling Variable para Acessibilidade */
+  --font-scale: 1;
+
+  /* Cores Principais do Portal Serra Azul do Mar */
+  --sea-900: #06283d;
+  --sea-800: #075985;
+  --sea-600: #0284c7;
+  --sea-400: #38bdf8;
+  --sea-100: #e0f2fe;
+
+  --sand-2: #f8fafc;
+  --gold: #d9a441;
+  --terra: #c2410c;
+  --green: #10b981;
+
+  --bg: #f8fafc;
+  --paper: #ffffff;
+  --fg: #0f172a;
+  --muted: #475569;
+  --line: #e2e8f0;
+
+  /* Gradientes */
+  --grad-sea: linear-gradient(135deg, #06283d 0%, #075985 60%, #0284c7 100%);
+  --grad-sun: linear-gradient(135deg, #d9a441 0%, #c2410c 100%);
+
+  /* Raios de Borda */
+  --r-sm: 6px;
+  --r: 12px;
+  --r-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(6, 40, 61, 0.05);
+  --shadow-md: 0 8px 24px rgba(6, 40, 61, 0.12);
+  --shadow-lg: 0 16px 36px rgba(6, 40, 61, 0.18);
+
+  /* Curva de Animação */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 150ms var(--ease);
+  --transition-normal: 250ms var(--ease);
+
+  /* Layout Max Widths */
+  --container-max: 1280px;
+  --wrap: 1200px;
+  --step: 1rem;
+}
+
+/* Modo Escuro */
+[data-theme="dark"] {
+  --bg: #0b1329;
+  --paper: #111c38;
+  --fg: #f8fafc;
+  --muted: #cbd5e1;
+  --line: rgba(255, 255, 255, 0.12);
+  --sand-2: #1e294b;
+
+  --sea-900: #0f172a;
+  --sea-800: #0284c7;
+  --sea-600: #38bdf8;
+  --sea-100: rgba(56, 189, 248, 0.15);
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Modo Alto Contraste */
+[data-contrast="high"] {
+  --bg: #000000 !important;
+  --paper: #000000 !important;
+  --fg: #ffffff !important;
+  --muted: #ffff00 !important;
+  --line: #ffffff !important;
+  --sand-2: #111111 !important;
+  --sea-600: #ffff00 !important;
+  --gold: #ffff00 !important;
+}

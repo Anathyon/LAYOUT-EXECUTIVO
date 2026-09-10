@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prefeitura Municipal de Alcântaras | Turismo, Serviços e Transparência</title>
+    <meta
+      name="description"
+      content="Portal oficial da Prefeitura Municipal de Alcântaras: destinos turísticos, serviços ao cidadão, notícias, transparência, licitações e ouvidoria."
+    />
+    <meta name="author" content="Prefeitura Municipal de Alcântaras" />
+    <meta property="og:title" content="Alcântaras | Portal Oficial da Prefeitura" />
+    <meta
+      property="og:description"
+      content="Descubra o município de Alcântaras e acesse todos os serviços públicos com transparência."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "GovernmentOrganization",
+        "name": "Prefeitura Municipal de Alcântaras",
+        "url": "https://alcantaras.ce.gov.br",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Praça da Matriz, 100 - Centro",
+          "addressLocality": "Alcântaras",
+          "addressRegion": "CE",
+          "postalCode": "62590-000",
+          "addressCountry": "BR"
+        },
+        "telephone": "+55-88-3000-0000"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+
+    <!-- ACESSIBILIDADE / BARRA GOV -->
+    <div class="topbar">
+      <div class="wrap topbar__inner">
+        <p class="topbar__gov">
+          <span class="flagdot" aria-hidden="true"></span> Portal oficial do Município de Alcântaras — Estado do Ceará
+        </p>
+        <div class="topbar__tools" role="group" aria-label="Ferramentas de acessibilidade">
+          <button class="tool" data-font="dec" aria-label="Diminuir fonte">A−</button>
+          <button class="tool" data-font="reset" aria-label="Tamanho de fonte padrão">A</button>
+          <button class="tool" data-font="inc" aria-label="Aumentar fonte">A+</button>
+          <button class="tool" data-contrast aria-pressed="false">Alto contraste</button>
+          <a class="tool" href="#mapa-do-site">Mapa do site</a>
+          <a class="tool tool--accent" href="#acessibilidade">Acessibilidade</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+      <div class="wrap header__inner">
+        <a class="brand" href="#/">
+          <span class="brand__crest" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="presentation">
+              <path
+                d="M24 3 42 11v14c0 11-7.6 18.4-18 20C13.6 43.4 6 36 6 25V11L24 3Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+              />
+              <path
+                d="M13 30c4-4 7 2 11-1s7 1 11-2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+              />
+              <path d="M24 12l4 7h-8l4-7Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span class="brand__text">
+            <strong>Alcântaras</strong>
+            <small>Prefeitura Municipal · Gestão 2025–2028</small>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Menu principal">
+          <ul class="nav__list">
+            <!-- A PREFEITURA -->
+            <li class="nav__item has-sub">
+              <button class="nav__link" aria-expanded="false">A Prefeitura</button>
+              <div class="submenu">
+                <a href="#/institucional">Institucional</a>
+                <a href="#/gestores">Prefeito e Vice</a>
+                <a href="#/galeriagestores">Galeria de Gestores</a>
+                <a href="#/agendas">Agenda Municipal</a>
+                <a href="#/secretarias">Secretarias</a>
+                <a href="#/convenios">Convênios</a>
+                <a href="#/emendas">Emendas Parlamentares</a>
+                <a href="#/conselhos">Conselhos e Membros</a>
+              </div>
+            </li>
+
+            <!-- MUNICÍPIO -->
+            <li class="nav__item has-sub">
+              <button class="nav__link" aria-expanded="false">Município</button>
+              <div class="submenu">
+                <a href="#cidade">História e Perfil</a>
+                <a href="#turismo">Turismo e Roteiros</a>
+                <a href="#cultura">Cultura e Patrimônio</a>
+                <a href="#/selos">Selos de Qualidade</a>
+              </div>
+            </li>
+
+            <!-- SERVIÇOS -->
+            <li class="nav__item has-sub">
+              <button class="nav__link" aria-expanded="false">Serviços</button>
+              <div class="submenu">
+                <a href="#servicos">Carta de Serviços</a>
+                <a href="#servicos">IPTU e Tributos</a>
+                <a href="#servicos">Alvarás e Licenças</a>
+                <a href="#servicos">Saúde e Educação</a>
+              </div>
+            </li>
+
+            <!-- TRANSPARÊNCIA -->
+            <li class="nav__item has-sub">
+              <button class="nav__link" aria-expanded="false">Transparência</button>
+              <div class="submenu">
+                <a href="#transparencia">Portal da Transparência</a>
+                <a href="#/licitacoes">Licitações e Contratos</a>
+                <a href="#/diario">Diário Oficial</a>
+                <a href="#/concursos">Concursos e Seleções</a>
+                <a href="#contato">Ouvidoria e e-SIC</a>
+              </div>
+            </li>
+
+            <li class="nav__item"><a class="nav__link" href="#noticias">Notícias</a></li>
+            <li class="nav__item"><a class="nav__link nav__link--hot" href="#turismo">Turismo</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <button class="iconbtn" data-search-open aria-label="Abrir busca">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M16 16l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <a class="btn btn--solid" href="#servicos">Serviços ao cidadão</a>
+          <button class="burger" data-menu-toggle aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <div class="progress" id="progress" aria-hidden="true"></div>
+    </header>
+
+    <!-- BUSCA -->
+    <div class="searchbar" id="searchbar" hidden>
+      <div class="wrap searchbar__inner">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Buscar serviços, notícias, licitações..."
+          aria-label="Buscar no portal"
+        />
+        <button class="btn btn--ghost" data-search-close>Fechar</button>
+      </div>
+      <div class="wrap"><ul class="search-results" id="search-results"></ul></div>
+    </div>
+
+    <main id="conteudo">
+      <!-- HERO -->
+      <section class="hero" id="inicio">
+        <div class="hero__media">
+          <img src="./assets/img/hero.jpg" alt="Vista aérea de Alcântaras" width="1920" height="1080" />
+          <div class="hero__scrim"></div>
+        </div>
+        <div class="wrap hero__content">
+          <p class="eyebrow reveal">Destino turístico · Patrimônio histórico nacional</p>
+          <h1 class="hero__title reveal">
+            Onde a serra <em>encontra</em><br />
+            o mar azul
+          </h1>
+          <p class="hero__lead reveal">
+            Portal oficial da Prefeitura Municipal de Alcântaras. Descubra roteiros, praias e cachoeiras
+            — e acesse todos os serviços municipais em um só lugar.
+          </p>
+          <div class="hero__cta reveal">
+            <a class="btn btn--hero" href="#turismo">Explorar o turismo</a>
+            <a class="btn btn--outline" href="#servicos">Ver carta de serviços</a>
+          </div>
+          <dl class="hero__stats reveal">
+            <div><dt>Praias</dt><dd data-count="18">0</dd></div>
+            <div><dt>Cachoeiras</dt><dd data-count="12">0</dd></div>
+            <div><dt>Bens tombados</dt><dd data-count="47">0</dd></div>
+            <div><dt>Visitantes/ano</dt><dd data-count="320" data-suffix=" mil">0</dd></div>
+          </dl>
+        </div>
+        <a class="hero__scroll" href="#atalhos" aria-label="Rolar para atalhos">
+          <span></span>
+        </a>
+      </section>
+
+      <!-- ATALHOS -->
+      <section class="shortcuts" id="atalhos" aria-labelledby="atalhos-t">
+        <div class="wrap">
+          <h2 class="sr-only" id="atalhos-t">Atalhos rápidos</h2>
+          <div class="shortcuts__grid" id="shortcuts-grid"></div>
+        </div>
+      </section>
+
+      <!-- TURISMO (DESTAQUE) -->
+      <section class="tourism" id="turismo" aria-labelledby="turismo-t">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <p class="eyebrow eyebrow--dark">Turismo</p>
+            <h2 id="turismo-t">Roteiros para viver a cidade</h2>
+            <p class="section-head__lead">
+              Da praia deserta ao casario colonial: escolha um roteiro e monte sua visita com apoio
+              da Secretaria de Turismo.
+            </p>
+          </header>
+
+          <div class="filters reveal" role="tablist" aria-label="Filtrar roteiros">
+            <button class="chip is-active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+            <button class="chip" data-filter="natureza" role="tab" aria-selected="false">Natureza</button>
+            <button class="chip" data-filter="historia" role="tab" aria-selected="false">História</button>
+            <button class="chip" data-filter="cultura" role="tab" aria-selected="false">Cultura</button>
+            <button class="chip" data-filter="gastronomia" role="tab" aria-selected="false">Gastronomia</button>
+          </div>
+
+          <div class="tour-grid" id="tour-grid"></div>
+
+          <div class="tourism__band reveal">
+            <div>
+              <h3>Central de Atendimento ao Turista</h3>
+              <p>
+                Praça da Matriz, 100 — aberto todos os dias, 8h às 18h. Guias credenciados,
+                mapas impressos e roteiros acessíveis.
+              </p>
+            </div>
+            <div class="tourism__band-actions">
+              <a class="btn btn--solid" href="#agenda">Ver agenda de eventos</a>
+              <a class="btn btn--ghost-light" href="#contato">Falar com a Secretaria</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTÍCIAS -->
+      <section class="news" id="noticias" aria-labelledby="noticias-t">
+        <div class="wrap">
+          <header class="section-head section-head--row reveal">
+            <div>
+              <p class="eyebrow eyebrow--dark">Comunicação</p>
+              <h2 id="noticias-t">Últimas notícias</h2>
+            </div>
+            <a class="link-arrow" href="#noticias">Todas as notícias</a>
+          </header>
+          <div class="news__grid" id="news-grid"></div>
+        </div>
+      </section>
+
+      <!-- SERVIÇOS -->
+      <section class="services" id="servicos" aria-labelledby="servicos-t">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <p class="eyebrow eyebrow--dark">Cidadão</p>
+            <h2 id="servicos-t">Carta de serviços municipais</h2>
+            <p class="section-head__lead">
+              Serviços digitais disponíveis 24 horas. Precisa de ajuda? Ligue 156 (gratuito).
+            </p>
+          </header>
+          <div class="services__grid" id="services-grid"></div>
+        </div>
+      </section>
+
+      <!-- AGENDA -->
+      <section class="agenda" id="agenda" aria-labelledby="agenda-t">
+        <div class="wrap agenda__inner">
+          <div class="agenda__text reveal">
+            <p class="eyebrow">Agenda</p>
+            <h2 id="agenda-t">O que acontece em Alcântaras</h2>
+            <p>
+              Festivais, feiras de artesanato e programação cultural durante todo o ano. Eventos
+              gratuitos e acessíveis, com apoio de intérpretes de Libras.
+            </p>
+            <a class="btn btn--hero" href="#cultura">Calendário completo</a>
+          </div>
+          <ol class="agenda__list" id="agenda-list"></ol>
+        </div>
+      </section>
+
+      <!-- CULTURA / GALERIA -->
+      <section class="culture" id="cultura" aria-labelledby="cultura-t">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <p class="eyebrow eyebrow--dark">Cultura e patrimônio</p>
+            <h2 id="cultura-t">Uma cidade que se conta em festas</h2>
+          </header>
+          <div class="gallery" id="gallery"></div>
+        </div>
+      </section>
+
+      <!-- TRANSPARÊNCIA -->
+      <section class="transparency" id="transparencia" aria-labelledby="transp-t">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <p class="eyebrow">Transparência e controle</p>
+            <h2 id="transp-t">Acesso à informação pública</h2>
+            <p class="section-head__lead">
+              Cumprimento da Lei nº 12.527/2011 (LAI), Lei Complementar nº 131/2009 e Lei nº
+              13.709/2018 (LGPD).
+            </p>
+          </header>
+          <div class="transparency__grid" id="transparency-grid"></div>
+          <div class="transparency__budget reveal">
+            <h3>Execução orçamentária 2026 (dados fictícios)</h3>
+            <ul class="bars" id="bars"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- GOVERNO -->
+      <section class="gov" id="governo" aria-labelledby="gov-t">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <p class="eyebrow eyebrow--dark">Governo</p>
+            <h2 id="gov-t">Secretarias municipais</h2>
+          </header>
+          <div class="gov__grid" id="gov-grid"></div>
+        </div>
+      </section>
+
+      <!-- CIDADE / INDICADORES -->
+      <section class="city" id="cidade" aria-labelledby="cidade-t">
+        <div class="wrap city__inner">
+          <div class="reveal">
+            <p class="eyebrow eyebrow--dark">A cidade</p>
+            <h2 id="cidade-t">Alcântaras em números</h2>
+            <p>
+              Fundada em 1712 no litoral oeste, o município reúne 412 km² de serra, manguezal e
+              praias. A economia combina turismo, pesca artesanal e agricultura familiar.
+            </p>
+            <ul class="ticks">
+              <li>Centro histórico tombado em 1968</li>
+              <li>Reserva ambiental com 9 mil hectares</li>
+              <li>Rede municipal com 24 escolas e 11 unidades de saúde</li>
+            </ul>
+          </div>
+          <dl class="city__stats reveal" id="city-stats"></dl>
+        </div>
+      </section>
+
+      <!-- ACESSIBILIDADE -->
+      <section class="a11y" id="acessibilidade" aria-labelledby="a11y-t">
+        <div class="wrap a11y__inner">
+          <div>
+            <p class="eyebrow">Acessibilidade digital</p>
+            <h2 id="a11y-t">Este portal segue o e-MAG e a WCAG 2.1 AA</h2>
+            <p>
+              Navegação por teclado, contraste ajustável, textos alternativos em imagens e
+              compatibilidade com leitores de tela e VLibras.
+            </p>
+          </div>
+          <ul class="a11y__keys">
+            <li><kbd>Alt</kbd> + <kbd>1</kbd> Conteúdo</li>
+            <li><kbd>Alt</kbd> + <kbd>2</kbd> Menu</li>
+            <li><kbd>Alt</kbd> + <kbd>3</kbd> Busca</li>
+            <li><kbd>Alt</kbd> + <kbd>4</kbd> Rodapé</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section class="contact" id="contato" aria-labelledby="contato-t">
+        <div class="wrap contact__inner">
+          <div class="reveal">
+            <p class="eyebrow eyebrow--dark">Contato</p>
+            <h2 id="contato-t">Fale com a Prefeitura</h2>
+            <ul class="contact__list">
+              <li><strong>Endereço</strong> Praça da Matriz, 100 — Centro, Alcântaras/CE</li>
+              <li><strong>Horário</strong> Segunda a sexta, 8h às 14h</li>
+              <li><strong>Telefone</strong> (88) 3000-0000 · <strong>Ouvidoria</strong> 156</li>
+              <li><strong>E-mail</strong> atendimento@alcantaras.ce.gov.br</li>
+              <li><strong>CNPJ</strong> 00.000.000/0001-00</li>
+            </ul>
+          </div>
+          <form class="form reveal" id="form" novalidate>
+            <h3>Ouvidoria e e-SIC</h3>
+            <label>Nome completo <input name="nome" required /></label>
+            <label>E-mail <input name="email" type="email" required /></label>
+            <label>
+              Tipo de manifestação
+              <select name="tipo">
+                <option>Solicitação de informação (LAI)</option>
+                <option>Reclamação</option>
+                <option>Sugestão</option>
+                <option>Denúncia</option>
+                <option>Elogio</option>
+              </select>
+            </label>
+            <label>Mensagem <textarea name="mensagem" rows="4" required></textarea></label>
+            <button class="btn btn--solid" type="submit">Enviar manifestação</button>
+            <p class="form__status" id="form-status" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="mapa-do-site">
+      <div class="wrap footer__grid">
+        <div>
+          <a class="brand brand--footer" href="#/">
+            <span class="brand__crest" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="presentation">
+                <path d="M24 3 42 11v14c0 11-7.6 18.4-18 20C13.6 43.4 6 36 6 25V11L24 3Z" fill="none" stroke="currentColor" stroke-width="2.4" />
+                <path d="M13 30c4-4 7 2 11-1s7 1 11-2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="brand__text"><strong>Alcântaras</strong><small>Prefeitura Municipal</small></span>
+          </a>
+          <p class="footer__note">
+            Praça da Matriz, 100 — Centro<br />CEP 62590-000 · (88) 3000-0000
+          </p>
+        </div>
+        <nav aria-label="Mapa do site">
+          <h3>A Prefeitura</h3>
+          <ul>
+            <li><a href="#/institucional">Institucional</a></li>
+            <li><a href="#/gestores">Prefeito e Vice</a></li>
+            <li><a href="#/secretarias">Secretarias</a></li>
+            <li><a href="#/conselhos">Conselhos</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Serviços no rodapé">
+          <h3>Serviços</h3>
+          <ul>
+            <li><a href="#servicos">IPTU</a></li>
+            <li><a href="#servicos">Alvarás</a></li>
+            <li><a href="#servicos">Nota fiscal</a></li>
+            <li><a href="#servicos">Agendamento de saúde</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Transparência no rodapé">
+          <h3>Transparência</h3>
+          <ul>
+            <li><a href="#transparencia">Portal da Transparência</a></li>
+            <li><a href="#/licitacoes">Licitações</a></li>
+            <li><a href="#/diario">Diário Oficial</a></li>
+            <li><a href="#/concursos">Concursos</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Turismo no rodapé">
+          <h3>Município</h3>
+          <ul>
+            <li><a href="#turismo">Roteiros</a></li>
+            <li><a href="#/selos">Selos de Qualidade</a></li>
+            <li><a href="#agenda">Eventos</a></li>
+            <li><a href="#contato">Central do turista</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wrap footer__bottom">
+        <p>© 2026 Prefeitura Municipal de Alcântaras — conteúdo demonstrativo com dados fictícios.</p>
+        <p><a href="#acessibilidade">Acessibilidade</a> · <a href="#transparencia">Política de privacidade</a> · <a href="#mapa-do-site">Mapa do site</a></p>
+      </div>
+    </footer>
+
+    <button class="totop" id="totop" aria-label="Voltar ao topo">↑</button>
+    <div class="libras" aria-hidden="true" title="Tradução em Libras (demonstrativo)">VLibras</div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

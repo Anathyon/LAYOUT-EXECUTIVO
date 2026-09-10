@@ -1,0 +1,27 @@
+{
+  "name": "layout-executivo",
+  "version": "1.0.0",
+  "description": "Estrutura base para projeto web executivo em HTML, CSS e JavaScript",
+  "main": "js/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx vite",
+    "serve": "npx serve .",
+    "test": "npx vitest run",
+    "test:watch": "npx vitest"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "executivo",
+    "dashboard"
+  ],
+  "author": "Desenvolvimento Executivo",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdom": "^24.0.0",
+    "vite": "^5.2.0",
+    "vitest": "^1.4.0"
+  }
+}
