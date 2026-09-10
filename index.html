@@ -94,7 +94,10 @@
           <ul class="nav__list">
             <!-- A PREFEITURA -->
             <li class="nav__item has-sub">
-              <button class="nav__link" aria-expanded="false">A Prefeitura</button>
+              <button class="nav__link" aria-expanded="false">
+                A Prefeitura
+                <svg class="nav__chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+              </button>
               <div class="submenu">
                 <a href="#/institucional">Institucional</a>
                 <a href="#/gestores">Prefeito e Vice</a>
@@ -109,7 +112,10 @@
 
             <!-- MUNICÍPIO -->
             <li class="nav__item has-sub">
-              <button class="nav__link" aria-expanded="false">Município</button>
+              <button class="nav__link" aria-expanded="false">
+                Município
+                <svg class="nav__chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+              </button>
               <div class="submenu">
                 <a href="#cidade">História e Perfil</a>
                 <a href="#turismo">Turismo e Roteiros</a>
@@ -120,7 +126,10 @@
 
             <!-- SERVIÇOS -->
             <li class="nav__item has-sub">
-              <button class="nav__link" aria-expanded="false">Serviços</button>
+              <button class="nav__link" aria-expanded="false">
+                Serviços
+                <svg class="nav__chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+              </button>
               <div class="submenu">
                 <a href="#servicos">Carta de Serviços</a>
                 <a href="#servicos">IPTU e Tributos</a>
@@ -131,7 +140,10 @@
 
             <!-- TRANSPARÊNCIA -->
             <li class="nav__item has-sub">
-              <button class="nav__link" aria-expanded="false">Transparência</button>
+              <button class="nav__link" aria-expanded="false">
+                Transparência
+                <svg class="nav__chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+              </button>
               <div class="submenu">
                 <a href="#transparencia">Portal da Transparência</a>
                 <a href="#/licitacoes">Licitações e Contratos</a>
@@ -477,6 +489,134 @@
 
     <button class="totop" id="totop" aria-label="Voltar ao topo">↑</button>
     <div class="libras" aria-hidden="true" title="Tradução em Libras (demonstrativo)">VLibras</div>
+
+    <!-- ====== SIDEBAR MOBILE ====== -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+    <aside class="sidebar" id="sidebar" aria-label="Menu de navegação" aria-hidden="true">
+
+      <!-- Cabeçalho -->
+      <div class="sidebar__head">
+        <a class="sidebar__brand" href="#/">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M24 3 42 11v14c0 11-7.6 18.4-18 20C13.6 43.4 6 36 6 25V11L24 3Z" fill="none" stroke="currentColor" stroke-width="2.4"/>
+            <path d="M13 30c4-4 7 2 11-1s7 1 11-2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M24 12l4 7h-8l4-7Z" fill="currentColor"/>
+          </svg>
+          <span>
+            <strong>Alcântaras</strong>
+            <small>Prefeitura Municipal · CE</small>
+          </span>
+        </a>
+        <button class="sidebar__close" id="sidebar-close" aria-label="Fechar menu">✕</button>
+      </div>
+
+      <!-- Busca -->
+      <div class="sidebar__search">
+        <div class="sidebar__search-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5" stroke-linecap="round"/>
+          </svg>
+          <input type="search" id="sidebar-search-input" placeholder="Buscar no portal…" aria-label="Buscar no portal"/>
+        </div>
+        <ul class="search-results" id="sidebar-search-results" style="margin-top:0.5rem"></ul>
+      </div>
+
+      <!-- Navegação rolável -->
+      <nav class="sidebar__body" aria-label="Menu lateral">
+
+        <!-- A Prefeitura -->
+        <div class="sidebar__group">
+          <p class="sidebar__group-label">A Prefeitura</p>
+          <button class="sidebar__link" data-sidebar-toggle="sub-prefeitura" aria-expanded="false">
+            A Prefeitura
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="sidebar__sub" id="sub-prefeitura">
+            <a href="#/institucional">Institucional</a>
+            <a href="#/gestores">Prefeito e Vice</a>
+            <a href="#/galeriagestores">Galeria de Gestores</a>
+            <a href="#/agendas">Agenda Municipal</a>
+            <a href="#/secretarias">Secretarias</a>
+            <a href="#/convenios">Convênios</a>
+            <a href="#/emendas">Emendas Parlamentares</a>
+            <a href="#/conselhos">Conselhos e Membros</a>
+          </div>
+        </div>
+
+        <!-- Município -->
+        <div class="sidebar__group">
+          <p class="sidebar__group-label">Município</p>
+          <button class="sidebar__link" data-sidebar-toggle="sub-municipio" aria-expanded="false">
+            Município
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="sidebar__sub" id="sub-municipio">
+            <a href="#cidade">História e Perfil</a>
+            <a href="#turismo">Turismo e Roteiros</a>
+            <a href="#cultura">Cultura e Patrimônio</a>
+            <a href="#/selos">Selos de Qualidade</a>
+          </div>
+        </div>
+
+        <!-- Serviços -->
+        <div class="sidebar__group">
+          <p class="sidebar__group-label">Serviços</p>
+          <button class="sidebar__link" data-sidebar-toggle="sub-servicos" aria-expanded="false">
+            Serviços ao Cidadão
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="sidebar__sub" id="sub-servicos">
+            <a href="#servicos">Carta de Serviços</a>
+            <a href="#servicos">IPTU e Tributos</a>
+            <a href="#servicos">Alvarás e Licenças</a>
+            <a href="#servicos">Saúde e Educação</a>
+          </div>
+        </div>
+
+        <!-- Transparência -->
+        <div class="sidebar__group">
+          <p class="sidebar__group-label">Transparência</p>
+          <button class="sidebar__link" data-sidebar-toggle="sub-transp" aria-expanded="false">
+            Transparência
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="sidebar__sub" id="sub-transp">
+            <a href="#transparencia">Portal da Transparência</a>
+            <a href="#/licitacoes">Licitações e Contratos</a>
+            <a href="#/diario">Diário Oficial</a>
+            <a href="#/concursos">Concursos e Seleções</a>
+            <a href="#contato">Ouvidoria e e-SIC</a>
+          </div>
+        </div>
+
+        <!-- Links diretos -->
+        <div class="sidebar__group">
+          <p class="sidebar__group-label">Acesso rápido</p>
+          <a class="sidebar__link" href="#noticias">Notícias</a>
+          <a class="sidebar__link" href="#turismo">🌊 Turismo</a>
+          <a class="sidebar__link" href="#agenda">Agenda de Eventos</a>
+          <a class="sidebar__link" href="#contato">Fale Conosco</a>
+        </div>
+
+      </nav>
+
+      <!-- CTA de destaque -->
+      <a class="sidebar__cta" href="#servicos">🏛️ Acessar Carta de Serviços</a>
+
+      <!-- Ferramentas de acessibilidade -->
+      <div class="sidebar__foot">
+        <p class="sidebar__foot-label">Acessibilidade</p>
+        <div class="sidebar__a11y">
+          <button class="tool" data-font="dec" aria-label="Diminuir fonte">A−</button>
+          <button class="tool" data-font="reset" aria-label="Tamanho padrão">A</button>
+          <button class="tool" data-font="inc" aria-label="Aumentar fonte">A+</button>
+          <button class="tool" data-contrast aria-pressed="false">Alto contraste</button>
+          <a class="tool" href="#acessibilidade">e-MAG</a>
+        </div>
+      </div>
+
+    </aside>
+    <!-- ====== /SIDEBAR MOBILE ====== -->
 
     <script type="module" src="./js/main.js"></script>
   </body>

@@ -395,42 +395,96 @@ function initHeader() {
 }
 
 function initMenus() {
-  const nav = $(".nav");
-  const burger = $("[data-menu-toggle]");
-  burger?.addEventListener("click", () => {
-    const open = nav?.classList.toggle("is-open") ?? false;
-    burger.setAttribute("aria-expanded", String(open));
-    document.body.style.overflow = open ? "hidden" : "";
+  const burger  = $('#header [data-menu-toggle]');
+  const sidebar = $('#sidebar');
+  const overlay = $('#sidebar-overlay');
+  const closeBtn = $('#sidebar-close');
+
+  function openSidebar() {
+    sidebar?.classList.add('is-open');
+    overlay?.classList.add('is-visible');
+    sidebar?.removeAttribute('aria-hidden');
+    overlay?.removeAttribute('aria-hidden');
+    burger?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    // Foca no primeiro elemento interativo do sidebar
+    setTimeout(() => closeBtn?.focus(), 60);
+  }
+
+  function closeSidebar() {
+    sidebar?.classList.remove('is-open');
+    overlay?.classList.remove('is-visible');
+    sidebar?.setAttribute('aria-hidden', 'true');
+    overlay?.setAttribute('aria-hidden', 'true');
+    burger?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    burger?.focus();
+  }
+
+  burger?.addEventListener('click', openSidebar);
+  closeBtn?.addEventListener('click', closeSidebar);
+  overlay?.addEventListener('click', closeSidebar);
+
+  // Fecha com Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar?.classList.contains('is-open')) {
+      closeSidebar();
+    }
   });
-  $$(".has-sub > .nav__link").forEach((btn) => {
-    btn.addEventListener("click", (ev) => {
-      ev.preventDefault();
-      const item = btn.parentElement;
-      const isOpen = item.classList.contains("is-open");
-      $$(".nav__item.is-open").forEach((i) => {
-        i.classList.remove("is-open");
-        i.querySelector(".nav__link")?.setAttribute("aria-expanded", "false");
+
+  // Acordeão de submenus do sidebar
+  $$('[data-sidebar-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset['sidebarToggle'];
+      const sub = document.getElementById(targetId);
+      const isOpen = sub?.classList.contains('is-open');
+
+      // Fecha todos os outros
+      $$('.sidebar__sub.is-open').forEach((el) => {
+        el.classList.remove('is-open');
+        const parentBtn = el.previousElementSibling;
+        parentBtn?.setAttribute('aria-expanded', 'false');
+        // Rotaciona a seta de volta
+        const svg = parentBtn?.querySelector('svg');
+        if (svg) svg.style.transform = '';
       });
-      if (!isOpen) {
-        item.classList.add("is-open");
-        btn.setAttribute("aria-expanded", "true");
+
+      if (!isOpen && sub) {
+        sub.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        const svg = btn.querySelector('svg');
+        if (svg) svg.style.transform = 'rotate(180deg)';
       }
     });
   });
-  document.addEventListener("click", (ev) => {
-    const t = ev.target;
-    if (!$(".nav")?.contains(t)) {
-      $$(".nav__item.is-open").forEach((i) => i.classList.remove("is-open"));
-    }
+
+  // Fecha o sidebar ao clicar em qualquer link dentro dele
+  $$('#sidebar a').forEach((a) => {
+    a.addEventListener('click', () => {
+      closeSidebar();
+      // Fecha submenus abertos
+      $$('.sidebar__sub.is-open').forEach((el) => {
+        el.classList.remove('is-open');
+        const parentBtn = el.previousElementSibling;
+        parentBtn?.setAttribute('aria-expanded', 'false');
+        const svg = parentBtn?.querySelector('svg');
+        if (svg) svg.style.transform = '';
+      });
+    });
   });
-  $$(".nav a, .submenu a").forEach(
-    (a) => a.addEventListener("click", () => {
-      nav?.classList.remove("is-open");
-      burger?.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-      $$(".nav__item.is-open").forEach((i) => i.classList.remove("is-open"));
-    })
-  );
+
+  // Busca integrada no sidebar (reutiliza BUSCA global)
+  const sidebarInput   = $('#sidebar-search-input');
+  const sidebarResults = $('#sidebar-search-results');
+  sidebarInput?.addEventListener('input', () => {
+    const q = sidebarInput.value.trim().toLowerCase();
+    if (!sidebarResults) return;
+    if (q.length < 2) { sidebarResults.innerHTML = ''; return; }
+    const hits = BUSCA.filter((b) => b.titulo.toLowerCase().includes(q)).slice(0, 5);
+    sidebarResults.innerHTML = hits.length
+      ? hits.map((h) => `<li><a href="${h.href}">${h.titulo}</a></li>`).join('')
+      : `<li class="empty">Nenhum resultado para "${sidebarInput.value}".</li>`;
+  });
 }
 
 function initFilters() {
