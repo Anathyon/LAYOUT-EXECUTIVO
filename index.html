@@ -52,10 +52,15 @@
           <span class="flagdot" aria-hidden="true"></span> Portal oficial do Município de Alcântaras — Estado do Ceará
         </p>
         <div class="topbar__tools" role="group" aria-label="Ferramentas de acessibilidade">
-          <button class="tool" data-font="dec" aria-label="Diminuir fonte">A−</button>
-          <button class="tool" data-font="reset" aria-label="Tamanho de fonte padrão">A</button>
-          <button class="tool" data-font="inc" aria-label="Aumentar fonte">A+</button>
-          <button class="tool" data-contrast aria-pressed="false">Alto contraste</button>
+          <div class="tool-group" role="group" aria-label="Controle de tamanho da fonte">
+            <button class="tool" data-font="dec" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+            <button class="tool" data-font="reset" title="Tamanho de fonte padrão" aria-label="Tamanho de fonte padrão">A</button>
+            <button class="tool" data-font="inc" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+          </div>
+          <button class="tool tool--contrast" data-contrast aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor"/></svg>
+            <span>Alto contraste</span>
+          </button>
           <a class="tool" href="#mapa-do-site">Mapa do site</a>
           <a class="tool tool--accent" href="#acessibilidade">Acessibilidade</a>
         </div>
@@ -608,13 +613,27 @@
 
       <!-- Ferramentas de acessibilidade -->
       <div class="sidebar__foot">
-        <p class="sidebar__foot-label">Acessibilidade</p>
-        <div class="sidebar__a11y">
-          <button class="tool" data-font="dec" aria-label="Diminuir fonte">A−</button>
-          <button class="tool" data-font="reset" aria-label="Tamanho padrão">A</button>
-          <button class="tool" data-font="inc" aria-label="Aumentar fonte">A+</button>
-          <button class="tool" data-contrast aria-pressed="false">Alto contraste</button>
-          <a class="tool" href="#acessibilidade">e-MAG</a>
+        <p class="sidebar__foot-label">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+          <span>Acessibilidade Digital</span>
+        </p>
+        <div class="sidebar__a11y-panel">
+          <div class="sidebar__a11y-row">
+            <span class="sidebar__a11y-label">Tamanho do texto:</span>
+            <div class="tool-group" role="group" aria-label="Tamanho da fonte">
+              <button class="tool" data-font="dec" aria-label="Diminuir fonte">A−</button>
+              <button class="tool" data-font="reset" aria-label="Tamanho padrão">A</button>
+              <button class="tool" data-font="inc" aria-label="Aumentar fonte">A+</button>
+            </div>
+          </div>
+          <button class="tool--contrast-btn" data-contrast aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor"/></svg>
+            <span>Modo Alto Contraste</span>
+          </button>
+          <div class="sidebar__a11y-links">
+            <a class="tool" href="#acessibilidade">Guia e-MAG</a>
+            <a class="tool" href="#mapa-do-site">Mapa do site</a>
+          </div>
         </div>
       </div>
 

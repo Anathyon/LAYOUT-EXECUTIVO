@@ -19,7 +19,7 @@ const ICONS = {
   lixo: svg('<path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><path d="M10 11v6M14 11v6"/>')
 };
 
-var ATALHOS = [
+const ATALHOS = [
   { icone: "praia", titulo: "Turismo", descricao: "Roteiros e atrativos", href: "#turismo" },
   { icone: "documento", titulo: "IPTU 2026", descricao: "Emitir 2ª via", href: "#servicos" },
   { icone: "grafico", titulo: "Transparência", descricao: "Receitas e despesas", href: "#transparencia" },
@@ -28,7 +28,7 @@ var ATALHOS = [
   { icone: "megafone", titulo: "Ouvidoria", descricao: "Registrar manifestação", href: "#contato" }
 ];
 
-var ROTEIROS = [
+const ROTEIROS = [
   {
     titulo: "Praia do Vento Leste",
     descricao: "Faixa de areia branca com água calma, ideal para famílias e stand-up paddle.",
@@ -79,7 +79,7 @@ var ROTEIROS = [
   }
 ];
 
-var NOTICIAS = [
+const NOTICIAS = [
   {
     titulo: "Serra Azul do Mar é escolhida como destino indutor do turismo estadual",
     resumo: "Reconhecimento amplia recursos para sinalização turística, capacitação de guias e requalificação da orla.",
@@ -111,7 +111,7 @@ var NOTICIAS = [
   }
 ];
 
-var SERVICOS = [
+const SERVICOS = [
   { icone: "documento", titulo: "IPTU e taxas", descricao: "2ª via, parcelamento e certidões negativas.", status: "Online" },
   { icone: "obra", titulo: "Alvarás e licenças", descricao: "Abertura de empresa, obras e eventos.", status: "Online" },
   { icone: "saude", titulo: "Agendamento de saúde", descricao: "Consultas e exames na rede municipal.", status: "Online" },
@@ -122,7 +122,7 @@ var SERVICOS = [
   { icone: "lixo", titulo: "Limpeza urbana", descricao: "Coleta seletiva e solicitação de reparos.", status: "Online" }
 ];
 
-var EVENTOS = [
+const EVENTOS = [
   { dia: "12", mes: "Set", titulo: "Feira de Artesanato da Praça", local: "Praça da Matriz", tag: "Cultura" },
   { dia: "20", mes: "Set", titulo: "Regata dos Pescadores", local: "Cais do Porto Velho", tag: "Turismo" },
   { dia: "04", mes: "Out", titulo: "Festival Gastronômico do Mar", local: "Orla Leste", tag: "Gastronomia" },
@@ -130,7 +130,7 @@ var EVENTOS = [
   { dia: "09", mes: "Nov", titulo: "Mostra de Cinema Municipal", local: "Casa de Cultura", tag: "Cultura" }
 ];
 
-var TRANSPARENCIA = [
+const TRANSPARENCIA = [
   { t: "Portal da Transparência", d: "Receitas, despesas, folha e diárias em tempo real." },
   { t: "Licitações e contratos", d: "Editais, atas, dispensas e contratos vigentes." },
   { t: "Diário Oficial", d: "Publicações oficiais do Executivo municipal." },
@@ -141,7 +141,7 @@ var TRANSPARENCIA = [
   { t: "Plano de governo", d: "PPA, LDO e LOA vigentes." }
 ];
 
-var ORCAMENTO = [
+const ORCAMENTO = [
   { area: "Saúde", pct: 27 },
   { area: "Educação", pct: 25 },
   { area: "Turismo e Cultura", pct: 18 },
@@ -149,7 +149,7 @@ var ORCAMENTO = [
   { area: "Assistência Social", pct: 14 }
 ];
 
-var SECRETARIAS = [
+const SECRETARIAS = [
   { n: "Turismo e Patrimônio", r: "Roteiros, sinalização e eventos" },
   { n: "Saúde", r: "Rede básica e vigilância sanitária" },
   { n: "Educação", r: "24 escolas e transporte escolar" },
@@ -160,14 +160,14 @@ var SECRETARIAS = [
   { n: "Assistência Social", r: "CRAS, CREAS e programas sociais" }
 ];
 
-var CIDADE_STATS = [
+const CIDADE_STATS = [
   { k: "População", v: "48.320" },
   { k: "Área", v: "412 km²" },
   { k: "Fundação", v: "1712" },
   { k: "IDH", v: "0,742" }
 ];
 
-var GALERIA = [
+const GALERIA = [
   { img: "./assets/img/cultura.jpg", cap: "Festival de Cultura Popular, edição 2025" },
   { img: "./assets/img/centro-historico.jpg", cap: "Rua das Pedras, centro histórico" },
   { img: "./assets/img/praia.jpg", cap: "Praia do Vento Leste" },
@@ -175,7 +175,7 @@ var GALERIA = [
   { img: "./assets/img/hero.jpg", cap: "Encontro da serra com o mar" }
 ];
 
-var BUSCA = [
+const BUSCA = [
   ...ATALHOS.map((a) => ({ titulo: a.titulo, href: a.href })),
   ...SERVICOS.map((s) => ({ titulo: s.titulo, href: "#servicos" })),
   ...ROTEIROS.map((r) => ({ titulo: r.titulo, href: "#turismo" })),
@@ -184,8 +184,11 @@ var BUSCA = [
   ...SECRETARIAS.map((s) => ({ titulo: `Secretaria de ${s.n}`, href: "#governo" }))
 ];
 
-var $ = (sel) => document.querySelector(sel);
-var $$ = (sel) => Array.from(document.querySelectorAll(sel));
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+const escapeHtml = (str) =>
+  String(str).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 
 let initialMainMarkup = '';
 
@@ -484,8 +487,8 @@ function initMenus() {
     if (q.length < 2) { sidebarResults.innerHTML = ''; return; }
     const hits = BUSCA.filter((b) => b.titulo.toLowerCase().includes(q)).slice(0, 5);
     sidebarResults.innerHTML = hits.length
-      ? hits.map((h) => `<li><a href="${h.href}">${h.titulo}</a></li>`).join('')
-      : `<li class="empty">Nenhum resultado para "${sidebarInput.value}".</li>`;
+      ? hits.map((h) => `<li><a href="${h.href}">${escapeHtml(h.titulo)}</a></li>`).join('')
+      : `<li class="empty">Nenhum resultado para "${escapeHtml(sidebarInput.value)}".</li>`;
   });
 }
 
@@ -535,7 +538,9 @@ function initSearch() {
       return;
     }
     const hits = BUSCA.filter((b) => b.titulo.toLowerCase().includes(q)).slice(0, 6);
-    results.innerHTML = hits.length ? hits.map((h) => `<li><a href="${h.href}">${h.titulo}</a></li>`).join("") : `<li class="empty">Nenhum resultado para “${input.value}”.</li>`;
+    results.innerHTML = hits.length 
+      ? hits.map((h) => `<li><a href="${h.href}">${escapeHtml(h.titulo)}</a></li>`).join("") 
+      : `<li class="empty">Nenhum resultado para “${escapeHtml(input.value)}”.</li>`;
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") close();
@@ -559,14 +564,16 @@ function initA11y() {
       apply();
     })
   );
-  const contrastBtn = $("[data-contrast]");
+  const contrastBtns = $$("[data-contrast]");
   const setContrast = (on) => {
     root.classList.toggle("contrast", on);
-    contrastBtn?.setAttribute("aria-pressed", String(on));
+    contrastBtns.forEach((btn) => btn.setAttribute("aria-pressed", String(on)));
     localStorage.setItem("saz-contrast", String(on));
   };
   setContrast(localStorage.getItem("saz-contrast") === "true");
-  contrastBtn?.addEventListener("click", () => setContrast(!root.classList.contains("contrast")));
+  contrastBtns.forEach((btn) =>
+    btn.addEventListener("click", () => setContrast(!root.classList.contains("contrast")))
+  );
   document.addEventListener("keydown", (e) => {
     if (!e.altKey) return;
     const map = { "1": "#conteudo", "2": "#header", "3": "#searchbar", "4": "#mapa-do-site" };
