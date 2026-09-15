@@ -1,9 +1,9 @@
 // Main JavaScript (ES6 Modules / Native Vanilla JS)
 import { resolveRoute } from './router.js';
 
-var svg = (paths) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+const svg = (paths) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
 
-var ICONS = {
+const ICONS = {
   praia: svg('<path d="M3 18h18"/><path d="M12 18V9"/><path d="M12 9c-3 0-5 1-6 3 1-4 3-6 6-6s5 2 6 6c-1-2-3-3-6-3z"/>'),
   documento: svg('<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h6M10 16h6"/>'),
   grafico: svg('<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'),
@@ -200,8 +200,10 @@ function renderAtalhos() {
       (a, i) => `
       <a class="shortcut reveal" href="${a.href}" style="transition-delay:${i * 60}ms">
         <span class="shortcut__ico" aria-hidden="true">${ICONS[a.icone] ?? ""}</span>
-        <strong>${a.titulo}</strong>
-        <span>${a.descricao}</span>
+        <div class="shortcut__info">
+          <strong>${a.titulo}</strong>
+          <span>${a.descricao}</span>
+        </div>
       </a>`
     ).join("")
   );
@@ -644,7 +646,6 @@ function bootHomePageViews() {
   renderNoticias();
   renderServicos();
   renderEventos();
-  renderGaleria();
   renderTransparencia();
   renderGoverno();
   initFilters();
